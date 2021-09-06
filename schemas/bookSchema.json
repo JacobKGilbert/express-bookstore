@@ -93,5 +93,5 @@
       "examples": [2017]
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
