@@ -37,7 +37,6 @@ router.post("/", async function (req, res, next) {
 
     if (!result.valid) {
       // pass validation errors to error handler
-      //  (the "stack" key is generally the most useful)
       let listOfErrors = result.errors.map((error) => error.stack)
       let err = new ExpressError(listOfErrors, 400)
       return next(err)
@@ -58,7 +57,6 @@ router.put("/:isbn", async function (req, res, next) {
 
     if (!result.valid) {
       // pass validation errors to error handler
-      //  (the "stack" key is generally the most useful)
       let listOfErrors = result.errors.map((error) => error.stack)
       let err = new ExpressError(listOfErrors, 400)
       return next(err)
