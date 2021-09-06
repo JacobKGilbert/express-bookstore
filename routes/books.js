@@ -1,5 +1,6 @@
 const express = require("express")
 const Book = require("../models/book")
+const ExpressError = require('../expressError')
 const jsonschema = require('jsonschema')
 const bookSchema = require('../schemas/bookSchema.json')
 
@@ -54,7 +55,7 @@ router.post("/", async function (req, res, next) {
 router.put("/:isbn", async function (req, res, next) {
   try {
     const result = jsonschema.validate(req.body, bookSchema)
-
+    console.log(result)
     if (!result.valid) {
       // pass validation errors to error handler
       let listOfErrors = result.errors.map((error) => error.stack)
